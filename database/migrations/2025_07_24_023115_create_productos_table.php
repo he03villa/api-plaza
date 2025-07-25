@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('imagen')->nullable();
             $table->decimal('precio', 10, 2);
             $table->decimal('descuento', 10, 2)->nullable()->default(0);
-            $table->foreignId('empresa_id')->constrained()->onDelete('cascade');
+            $table->foreignId('empresa_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

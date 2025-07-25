@@ -41,7 +41,7 @@ class UserDao
         $credentials = request(['email', 'password']);
   
         if (! $token = auth('api')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return ['success' => false, 'message' => 'Unauthorized'];
         }
   
         return $this->respondWithToken($token);
@@ -92,10 +92,11 @@ class UserDao
      */
     protected function respondWithToken($token)
     {
-        return response()->json([
+        return [
+            'success' => true,
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60
-        ]);
+        ];
     }
 }

@@ -7,5 +7,5 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return 'Login';
-});
+    return 'login';
+})->name('login');

@@ -17,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'validarLogin' => App\Http\Middleware\validarLoginMiddleware::class,
             'validarUser' => App\Http\Middleware\validarUserMiddleware::class,
+            'validarSaveEmpresa' => App\Http\Middleware\validarSaveEmpresaMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
